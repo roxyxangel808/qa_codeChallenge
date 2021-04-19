@@ -25,3 +25,23 @@ let dataset = [
 ];
 
 describe("Calculator", () => {});
+dataset.forEach((cal) => {
+  test(`the ${cal.method} method with ${cal.x} and ${cal.y}`, () => {
+    switch (cal.method) {
+      case "add":
+        expect(calculator.add(cal.x, cal.y)).toEqual(cal.x + cal.y);
+        break;
+      case "subtract":
+        expect(calculator.subtract(cal.x, cal.y)).toEqual(cal.x - cal.y);
+        break;
+      case "multiply":
+        expect(calculator.multiply(cal.x, cal.y)).toEqual(cal.x * cal.y);
+        break;
+      case "divide":
+        expect(calculator.divide(cal.x, cal.y)).toEqual(cal.x / cal.y);
+        break;
+      default:
+        console.log("add, multiply, subtract, divide");
+    }
+  });
+});
